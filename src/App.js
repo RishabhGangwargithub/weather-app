@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 function App() {
-  const [query, setQuery] = useState({ q: "berlin" });
+  const [query, setQuery] = useState({ q: "delhi" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
 
@@ -34,17 +34,17 @@ function App() {
   }, [query, units]);
 
   const formatBackground = () => {
-    if (!weather) return "from-cyan-700 to-blue-700";
+    if (!weather) return "from-yellow-700 to-red-700";
     const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
+    if (weather.temp <= threshold) return "from-yellow-700 to-red-700";
 
-    return "from-yellow-700 to-orange-700";
+    return "from-green-600 to-purple-900";
   };
 
   return (
     
     <div
-      className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
+      className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br  h-fit shadow-xl shadow-gray-700 ${formatBackground()}`}
     >
       <TopButtons setQuery={setQuery} />
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
